@@ -35,7 +35,7 @@ postRoutes.post("/posts", async (req, res) => {
   obj["comments"] = [];
 
   await saveItemInCollection("posts", obj);
-  await saveItemInCollection("comments", obj);
+  // await saveItemInCollection("comments", obj);
   return res.json({
     result: true,
   });
