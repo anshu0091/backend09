@@ -97,12 +97,14 @@ postRoutes.post("/posts/:id/comments", async (req, res) => {
   let id = req.params.id;
   let commentObj = req.body;
   //get item from database
-  post.comments.push(commentObj);
+  // post.comments.push(commentObj);
   let postsList = await getAllItemsFromCollection("posts", {
     _id: ObjectId(id),
   });
+  // console.log(id);
+  // console.log(postsList);
   // JSON.parse(fs.readFileSync('./data/posts.json'))
-  let index = postsList.findIndex((x) => x.id == id);
+  let index = postsList.findIndex((x) => x._id == id);
 
   //checking if found
   if (index > -1) {
